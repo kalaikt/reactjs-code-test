@@ -21,9 +21,9 @@ class ToDo extends React.Component {
                 <span>Unchecked count: <span id="unchecked-count">{this.state.uncheckedCount}</span></span>
             </div>
             <div className="center form">
-                <form onSubmit={ (event) => this.newTodo(event) }>
+                <form onSubmit={ (event) => this.addTodo(event) }>
                     <input type="text" value={this.state.name} onChange={(event) => this.onChange(event)} />
-                    <button className="button">New TODO</button>
+                    <button className="button">Add TODO</button>
                 </form>
             </div>
             { this.getToDoList() }
@@ -31,7 +31,7 @@ class ToDo extends React.Component {
      );
   }
 
-  newTodo(event) {
+  addTodo(event) {
     event.preventDefault();
 
     if(this.state.name == '')
