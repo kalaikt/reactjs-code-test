@@ -7,6 +7,7 @@ class ToDo extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
+      name: '',
         uncheckedCount: 0,
         items: []
       };
@@ -19,18 +20,33 @@ class ToDo extends React.Component {
                 <span>Item count: <span id="item-count">{this.state.items.length}</span></span>
                 <span>Unchecked count: <span id="unchecked-count">{this.state.uncheckedCount}</span></span>
             </div>
-            <button className="button center" onClick={ () => this.newTodo() }>New TODO</button>
+            <div className="center form">
+                <form onSubmit={ (event) => this.newTodo(event) }>
+                    <input type="text" value={this.state.name} onChange={(event) => this.onChange(event)} />
+                    <button className="button">New TODO</button>
+                </form>
+            </div>
             { this.getToDoList() }
         </div>
      );
   }
 
-  newTodo() {
+  newTodo(event) {
+    event.preventDefault();
+
+    if(this.state.name == '')
+        return;
+
     this.setState(
         {
-            items: [...this.state.items, { name: "TODO Item " + (this.state.items.length + 1), checked: true}]
+            items: [...this.state.items, { name: this.state.name, checked: true}],
+            name: ''
         }
      );
+  }
+
+  onChange(event) {
+    this.setState({name: event.target.value});
   }
 
   getToDoList() {

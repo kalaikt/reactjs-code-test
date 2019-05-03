@@ -64,3 +64,14 @@ ul {
 .todo-container:first-of-type {
   border-top: 1px solid #333;
 }
+
+input[type="text"]{
+    width: 40%;
+    height: 35px;
+}
+
+.form{
+    padding: 2rem;
+    width: 100%;
+    text-align: center
+}
