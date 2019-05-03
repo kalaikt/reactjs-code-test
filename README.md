@@ -1,6 +1,4 @@
-# empty-project-babel-css-react-react-hot-loader
-
-Empty project.
+# ReactJS Test
 
 ## Building and running on localhost
 
